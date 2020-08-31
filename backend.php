@@ -1,6 +1,6 @@
 <?php
   if (isset($_POST)) {
     // code...
-    echo $_POST['username'];
+    echo "Received: ".$_POST['username'];
   }
 ?>
