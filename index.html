@@ -6,15 +6,28 @@
   </head>
   <body>
 
-    <button onclick="helloWorld()">
-      Hello World
+    <button onclick="sendRequest()">
+      Send AJAX Request
     </button>
 
 
     <script>
-      function helloWorld(){
-        console.log('Hello World')
+
+     //Enviar petición
+      function sendRequest(){
+        var theObject = new XMLHttpRequest();
+        theObject.open('GET','backend.php', true);
+
+        theObject.setRequestHeader('Content-Type',
+        'application/x-www-form-urlencoded');
+
+        theObject.onreadystatechange = function(){
+          console.log(theObject.responseText)
+        }
+
+        theObject.send();
       }
+
     </script>
   </body>
 </html>
