@@ -3,14 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>AJAX Project</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
   </head>
   <body>
+    <div class="container mt-4">
+      <button onclick="sendRequest()" class="btn btn-warning">
+        Eviar datos
+      </button>
 
-    <button onclick="sendRequest()">
-      Send AJAX Request
-    </button>
+      <h1 id="title"></h1>
 
-    <h1 id="title"></h1>
+    </div>
+
 
 
     <script>
@@ -18,7 +22,7 @@
      //Enviar petición
       function sendRequest(){
         var theObject = new XMLHttpRequest();
-        theObject.open('GET','backend.php', true);
+        theObject.open('POST','backend.php', true);
 
         theObject.setRequestHeader('Content-Type',
         'application/x-www-form-urlencoded');
@@ -27,7 +31,7 @@
           document.getElementById('title').innerHTML = theObject.responseText;
         }
 
-        theObject.send();
+        theObject.send('username=JC');
       }
 
     </script>
